@@ -1,0 +1,62 @@
+---
+# tasks file for slave
+- hosts: slave
+  
+  tasks:
+          - name: for_docker_repo
+            copy:
+                    src: /root/docker.repo
+                    dest: /etc/yum.repos.d/docker.repo
+          - name: installing docker
+            command: "yum install docker-ce --nobest -y"
+          - name: starting services
+            service:
+                    name: docker
+                    state: started
+                    enabled: yes
+          - name: installing docker package
+            pip:
+                    name: docker
+                    executable: pip3
+
+          - name: copying kub.sh file
+            copy:
+                    src: /root/kub.sh
+                    dest: /kub.sh
+
+          - name: k8s installing          
+            command: "bash /kub.sh"
+          - name: correcting CRI 
+            command: "rm -f /etc/containerd/config.toml"
+          - name: restarting containerd
+            service:
+                    name: containerd
+                    state: restarted
+          - name: starting kubelet service
+            service:
+                    name: kubelet
+                    state: started
+                    enabled: yes
+          - name: changing driver
+            copy:
+                   dest: /etc/docker/daemon.json
+                   content: |
+                           {
+                             "exec-opts": ["native.cgroupdriver=systemd"]
+                           }
+          - name: restarting docker service
+            service:
+                   name: docker
+                   state: restarted
+          - name: installing iproutetc
+            yum:
+                   name:
+                         - iproute-tc
+                   state: present
+          - name: copying token file
+            copy:
+                    src: /tmp/token.sh
+                    dest: /tmp/token.sh
+          - name: applying token
+            shell: " bash /tmp/token.sh"
+

@@ -1,0 +1,8 @@
+[master]
+
+10.1.0.5  ansible_user=paromita ansible_private_key_file=key1.pem
+
+[slave]
+
+10.1.0.6  ansible_user=paromita ansible_private_key_file=key1.pem
+10.1.0.7  ansible_user=paromita ansible_private_key_file=key1.pem
