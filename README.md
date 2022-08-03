@@ -1,3 +1,5 @@
+# Ansible_Kubernetes_on_Azure
+
 Problem Statment:-
 * It solves the problem of learning Kubernetes by applying with own hands for novice students to that technology.
 * It can be used to deploy in data centers to launch a Kubernetes cluster with just one click of running an Ansible playbook. 
@@ -21,7 +23,6 @@ Deployment Steps:-
 
 DEMO_URL = https://drive.google.com/file/d/1qPjziXezktq2VgMCz4JOqlFEbvchqpSv/view?usp=sharing
 
-# Ansible_Kubernetes_on_Azure
 1. ansible.cfg :- ansible.cfg :- This file is useful to set up the required things for the ansible in the configuration file like setting up the python environment
 2. master.yml :- This yml file is useful to configure the whole Kubernetes master node including the flannel overlay network
 3. slave.yml :- This file is useful to configure the slaves and to join the cluster initiated by the master with the help of a token provided by the master
