@@ -6,6 +6,7 @@ Problem Statment:-
 * It automates the process of creating a Kubernetes cluster which will be ready to use in any environment.
 
 Project Description:-
+
 It can solve two use cases:- 
 * We all know how big a Kubernetes cluster is and the heavy tasks while setting it up..... And I believe we can learn things as students when we know the internals of any technology and learn it and use them for automating or easing the stuff while we perform real-world operations on that technology. 
 * For that, I have created this setup which will be useful to students to understand the cluster from within where they can open every file and operate every pod in the master different from the third party provider who only gives access to use it but not changing the internals. 
@@ -31,4 +32,5 @@ Files Description:-
 4. ip.txt :- this is the inventory file for the ansible from where it gets the IP address of the nodes where it should operate with the help of python 
 5. kub.sh :- Useful to create a repo file for the Kubernetes and to install the required packages
 6. docker.repo:- file which should be kept in /etc/yum.repos.d for configuring yum to install the docker-ce package
+
 
